@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Favorite NBA Players: Points Over Time</title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/visualization.css">
+</head>
+<body>
+	<div class="container">
+
+		<h1>My Favorite NBA Players: Points Over Time</h1>
+		<div class="intro">A look at season point totals for some of the greatest scorers in NBA history — from Pete Maravich's explosive early career to LeBron James' remarkable longevity. Each season total reflects the raw points accumulated across all regular season games played that year.</div>
+
+		<h2>Season Point Totals by Player</h2>
+		<div class="intro">Each line traces a single player's cumulative point total across their career, increasing with every season played. Steeper slopes reveal dominant scoring years, while flatter stretches reflect reduced playing time or injury-shortened seasons. Hover over a line to highlight a player.</div>
+		<div id="line-chart" class="responsive-svg-container"></div>
+
+		<h2>Relative Scoring Share Over Time</h2>
+		<div class="intro">The streamgraph below shows each player's point totals as flowing bands stacked over time. The width of each band reflects how many points a player scored in a given season relative to the rest of the group — making it easy to see who was dominating during any era.</div>
+		<div id="stream-graph" class="responsive-svg-container"></div>
+
+		<div class="todo">
+			<h3>Todo</h3>
+			<ul>
+				<li>Add filtering to both visualizations to compare total assists, rebounds, 3pt, and games played.</li>
+				<li>Add interactivity to the line graph such that when you click on a line, it displays a tooltip containing the name of the player and stats for each year. For example, if checking out total points for Michael Jordan, it displays a tooltip containing total points per season for Michael Jordan.</li>
+				<li>Add interactivity to the steamgraph such that when you hover over a year, it displays a tooltip showing the total points / total assists / total rebounds / etc. scored by each player that year.</li>
+			</ul>
+		</div>
+
+		<div class="source">
+			<h3>Data source</h3>
+			<p>Season totals sourced from Basketball Reference. Data covers all regular seasons for each player through retirement or the most recent completed season.</p>
+			<h3>Players included</h3>
+			<p>Ben Wallace, Blake Griffin, Gary Payton, George Gervin, Hakeem Olajuwon, James Harden, Kevin Garnett, Larry Bird, LeBron James, Magic Johnson, Michael Jordan, Pete Maravich, Shaquille O'Neal, Steph Curry, Tim Duncan.</p>
+		</div>
+	</div>
+
+	<!-- Load your scripts here -->
+	<script src="https://d3js.org/d3.v7.min.js"></script>
+	<script src="js/shared-constants.js"></script>
+	<script src="js/load-data.js"></script>
+	<script src="js/linegraph.js"></script>
+	<script src="js/steamgraph.js"></script>
+	<script src="js/draw-legend.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
