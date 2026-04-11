@@ -9,16 +9,16 @@ const drawLineGraph = (data) => {
       .sort((a, b) => a.year - b.year);
 
     let cumulative = 0;
-    const cumulativeSeasons = sorted.map(d => {
+    const cumulativeSeasons = sorted.map((d, i) => {
       cumulative += d.points;
-      return { year: d.year, cumPoints: cumulative };
+      return { careerYear: i + 1, cumPoints: cumulative };
     });
 
     return { player, seasons: cumulativeSeasons };
   });
 
   // Scales
-  const allYears = playerData.flatMap(d => d.seasons.map(s => s.year));
+  const allYears = playerData.flatMap(d => d.seasons.map(s => s.careerYear));
   const allCumPoints = playerData.flatMap(d => d.seasons.map(s => s.cumPoints));
 
   const xScale = d3.scaleLinear()
@@ -45,6 +45,15 @@ const drawLineGraph = (data) => {
     .attr("transform", `translate(0,${innerHeight})`)
     .call(d3.axisBottom(xScale).tickFormat(d3.format("d")));
 
+  // X axis label
+  svg.append("text")
+    .attr("x", innerWidth / 2)
+    .attr("y", innerHeight + margin.bottom - 10)
+    .attr("text-anchor", "middle")
+    .attr("font-size", "13px")
+    .attr("fill", "#555")
+    .text("Years in NBA");
+
   // Y axis
   svg.append("g")
     .call(d3.axisLeft(yScale).tickFormat(d => d3.format(",")(d)));
@@ -61,7 +70,7 @@ const drawLineGraph = (data) => {
 
   // Line generator
   const line = d3.line()
-    .x(d => xScale(d.year))
+    .x(d => xScale(d.careerYear))
     .y(d => yScale(d.cumPoints));
 
   // Draw lines
