@@ -8,6 +8,8 @@ const loadData = () => {
       assists: +d.AST,
       rebounds: +d.TRB,
       games: +d.G,
+      steals: +d.STL,
+      blocks: +d.BLK,
       threepointers: +d["3P"]
     };
   });

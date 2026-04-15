@@ -4,6 +4,9 @@ const height = 500;
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 
+/***********************/
+/*       Colors        */
+/***********************/
 const formatsInfo = [
   {id: "Lebron James", label: "Lebron James", color: "#3366CC"},
   {id: "Michael Jordan", label: "Michael Jordan", color: "#CC3333"},
@@ -21,3 +24,30 @@ const formatsInfo = [
   {id: "Pete Maravich", label: "Pete Maravich", color: "#99CC00"},
   {id: "Ben Wallace", label: "Ben Wallace", color: "#FF6666"},
 ];
+
+/***********************/
+/*    Stat Field Map   */
+/***********************/
+const statFieldMap = {
+  "points":   "points",
+  "rebounds": "rebounds",
+  "assists":  "assists",
+  "steals":   "steals",
+  "blocks":   "blocks",
+  "g":        "games",
+  "3P":       "threepointers"
+};
+
+/***********************/
+/*       Filters       */
+/***********************/
+const filters = [
+  { id: "points", label: "Points", isActive: true },
+  { id: "rebounds", label: "Rebounds", isActive: false },
+  { id: "assists", label: "Assists", isActive: false },
+  { id: "steals", label: "Steals", isActive: false },
+  { id: "blocks", label: "Blocks", isActive: false },
+  { id: "g" , label: "Games Played", isActive: false },
+  { id: "3P", label: "3-Pointers Made", isActive: false }
+];
+
